@@ -1,0 +1,15 @@
+//------------------------------------------------------------------------------
+    //
+    //  Filename       : setCst.sgdc
+    //  Author         : Huang Leilei
+    //  Status         : draft
+    //  Created        : 2025-02-18
+    //  Description    : constraints
+    //
+//------------------------------------------------------------------------------
+
+// top
+current_design calc_add_knl
+
+    clock -name clk  -period 10
+    reset -name rstn -value  0

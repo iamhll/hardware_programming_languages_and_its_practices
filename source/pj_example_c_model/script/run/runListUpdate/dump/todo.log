@@ -1,0 +1,5 @@
+../../../document/description/rst_xkmsc/source/C04_aboutScript/index.rst:116:   #. collect markers like *TODO*, *NOTE*, *???* or *!!!*
+../../../source/xkmsc/kernel/msc_knl_dump.cpp:14:// TODO: tidy up function dumpFileOsd
+../../../source/xkmsc/unit/msc_unit_dump.cpp:11:// TODO: split Y U and V
+../../../source/xkmsc/unit/scaler/msc_scl_dump.cpp:11:// TODO: split Y U and V
+../../../source/xkmsc/common/msc_common.hpp:11:// TODO: optmize those comments to support both doxygen and vscode

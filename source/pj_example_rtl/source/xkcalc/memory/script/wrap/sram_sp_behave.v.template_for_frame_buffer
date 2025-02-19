@@ -1,0 +1,226 @@
+//------------------------------------------------------------------------------
+  //
+  //  Filename       : example.v
+  //  Author         : Huang Leilei
+  //  Status         : draft
+  //  Created        : 2025-02-18
+  //  Description    : plain memory
+  //                   (auto generated)
+  //
+//------------------------------------------------------------------------------
+
+`include "define_calc.vh"
+
+module example(
+  // global
+  clk         ,
+  rstn        ,
+  // common
+  adr_i       ,
+  // write
+  wr_val_i    ,
+  wr_dat_i    ,
+  // read
+  rd_val_i    ,
+  rd_val_o    ,
+  rd_dat_o
+);
+
+
+//*** PARAMETER ****************************************************************
+
+  // global
+  parameter    KNOB_REGOUT = -1            ;
+
+  parameter    INDX_BNK    = -1            ;
+
+  parameter    SIZE        = -1            ;
+
+  parameter    DATA_WD     = -1            ;
+
+  // local
+  localparam   SIZE_WD     = `LOG2( SIZE ) ;
+
+  // derived
+  localparam   SIZE_BNK_0           = SIZE                      // skip checkParamInputOutputRegAndWireDeclaration
+                                    * `SIZE_FRA_X_MAX_BNK_0     // skip checkParamInputOutputRegAndWireDeclaration
+                                    / `SIZE_FRA_X_MAX      ;    // skip checkParamInputOutputRegAndWireDeclaration
+  localparam   SIZE_BNK_1           = SIZE                      // skip checkParamInputOutputRegAndWireDeclaration
+                                    * `SIZE_FRA_X_MAX_BNK_1     // skip checkParamInputOutputRegAndWireDeclaration
+                                    / `SIZE_FRA_X_MAX      ;    // skip checkParamInputOutputRegAndWireDeclaration
+  localparam   SIZE_BNK_ACTIVE      = INDX_BNK == 'd0           // skip checkParamInputOutputRegAndWireDeclaration
+                                    ? SIZE_BNK_0                // skip checkParamInputOutputRegAndWireDeclaration
+                                    : SIZE_BNK_1           ;    // skip checkParamInputOutputRegAndWireDeclaration
+
+  localparam   SIZE_BNK_0_WD        = `LOG2 ( SIZE_BNK_0 ) ;    // skip checkParamInputOutputRegAndWireDeclaration
+  localparam   SIZE_BNK_1_WD        = `LOG2 ( SIZE_BNK_1 ) ;    // skip checkParamInputOutputRegAndWireDeclaration
+  localparam   SIZE_BNK_ACTIVE_WD   = INDX_BNK == 'd0           // skip checkParamInputOutputRegAndWireDeclaration
+                                    ? SIZE_BNK_0_WD             // skip checkParamInputOutputRegAndWireDeclaration
+                                    : SIZE_BNK_1_WD        ;    // skip checkParamInputOutputRegAndWireDeclaration
+
+
+//*** INPUT/OUTPUT *************************************************************
+
+  // global
+  input                    clk             ;
+  input                    rstn            ;
+
+  // common
+  input  [SIZE_WD-1 :0]    adr_i           ;
+
+  // write
+  input                    wr_val_i        ;
+  input  [DATA_WD-1 :0]    wr_dat_i        ;
+
+  // read
+  input                    rd_val_i        ;
+  output                   rd_val_o        ;
+  output [DATA_WD-1 :0]    rd_dat_o        ;
+
+
+//*** WIRE/REG *****************************************************************
+
+  // read
+  wire   [DATA_WD-1 :0]    rd_dat_w        ;
+
+
+//*** MAIN BODY ****************************************************************
+//--- RAM ------------------------------
+  `ifdef KNOB_LIB_BEHAVE
+    // sram_sp_behave
+    sram_sp_behave #(
+      .KNOB_RNDOUT    ( 'd1         ),
+      .SIZE           ( SIZE_BNK_ACTIVE    ),
+      .DATA_WD        ( DATA_WD     )
+    ) sram_sp_behave(
+      .clk            ( clk         ),
+      .adr_i          ( adr_i[SIZE_BNK_ACTIVE_WD-'d1:0]    ),
+      .wr_val_i       ( wr_val_i    ),
+      .wr_dat_i       ( wr_dat_i    ),
+      .rd_val_i       ( rd_val_i    ),
+      .rd_dat_o       ( rd_dat_w    )
+    );
+  `endif
+
+  `ifdef KNOB_LIB_GF_22
+    generate
+      case( INDX_BNK )
+        'd0 : begin : bnk0
+          `include "GF_22_INST_EXAMPLE_BNK_0.vh"
+        end
+        'd1 : begin : bnk1
+          `include "GF_22_INST_EXAMPLE_BNK_1.vh"
+        end
+      endcase
+    endgenerate
+  `endif
+
+  `ifdef KNOB_LIB_GF_28
+    generate
+      case( INDX_BNK )
+        'd0 : begin : bnk0
+          `include "GF_28_INST_EXAMPLE_BNK_0.vh"
+        end
+        'd1 : begin : bnk1
+          `include "GF_28_INST_EXAMPLE_BNK_1.vh"
+        end
+      endcase
+    endgenerate
+  `endif
+
+  `ifdef KNOB_LIB_GF_40
+    generate
+      case( INDX_BNK )
+        'd0 : begin : bnk0
+          `include "GF_40_INST_EXAMPLE_BNK_0.vh"
+        end
+        'd1 : begin : bnk1
+          `include "GF_40_INST_EXAMPLE_BNK_1.vh"
+        end
+      endcase
+    endgenerate
+  `endif
+
+  `ifdef KNOB_LIB_FPGA
+    generate
+      case( INDX_BNK )
+        'd0 : begin : bnk0
+          `include "FPGA_INST_EXAMPLE_BNK_0.vh"
+        end
+        'd1 : begin : bnk1
+          `include "FPGA_INST_EXAMPLE_BNK_1.vh"
+        end
+      endcase
+    endgenerate
+  `endif
+
+
+//--- OUTPUT ---------------------------
+  generate
+    if( KNOB_REGOUT == 'd1 ) begin : regOut
+      // variables
+      reg                   rd_val_d0_r ;
+      reg                   rd_val_d1_r ;
+      reg [DATA_WD-1 :0]    rd_dat_d1_r ;
+
+      // logic
+      assign rd_val_o = rd_val_d1_r ;
+      assign rd_dat_o = rd_dat_d1_r ;
+      always @(posedge clk or negedge rstn ) begin
+        if( !rstn ) begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+          rd_val_d0_r <= 'd0 ;
+          rd_val_d1_r <= 'd0 ;
+          rd_dat_d1_r <= 'd0 ;
+        end
+        else begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+            rd_val_d0_r <= rd_val_i    ;
+            rd_val_d1_r <= rd_val_d0_r ;
+          if( rd_val_d0_r ) begin
+            rd_dat_d1_r <= rd_dat_w    ;
+          end
+        end
+      end
+    end
+    else begin : notRegOut
+      // variables
+      reg    rd_val_d0_r ;
+
+      // logic
+      assign rd_val_o = rd_val_d0_r ;
+      assign rd_dat_o = rd_dat_w    ;
+      always @(posedge clk or negedge rstn ) begin
+        if( !rstn ) begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+          rd_val_d0_r <= 'd0 ;
+        end
+        else begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+          rd_val_d0_r <= rd_val_i ;
+        end
+      end
+    end
+  endgenerate
+
+
+//*** DEBUG ********************************************************************
+
+  `ifdef SIM_KNOB_DBG_CALC
+
+    // sanity check
+    initial begin
+      wait( rstn );
+      if( KNOB_REGOUT == -'d1 ) begin
+        $display( "\n\t SRAM ERROR: KNOB_REGOUT in %m is not configured! \n" );
+        #1000 ;
+        $finish ;
+      end
+      if( INDX_BNK == -'d1 ) begin
+        $display( "\n\t SRAM ERROR: INDX_BNK in %m is not configured! \n" );
+        #1000 ;
+        $finish ;
+      end
+    end
+
+  `endif
+
+endmodule
+
+`include "undef_calc.vh"

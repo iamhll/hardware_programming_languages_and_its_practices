@@ -1,0 +1,9 @@
+###############  ###############
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rule                 Alias                Severity File                                                                                                                            Line               Wt Message
+===============================================================================
+ReportStopSummary    ReportStopSummary    Info     ./spyglass-1/calc_add_knl/lint/lint_abstract/spyglass_reports/SpyGlass/stop_summary.rpt                                        0               10 Design option(s) stop/stopfile/stopdir specified. Please see ./spyglass-1/calc_add_knl/lint/lint_abstract/spyglass_reports/SpyGlass/stop_summary.rpt to know the design units which have been stopped
+ElabSummary          ElabSummary          Info     ./spyglass-1/calc_add_knl/lint/lint_abstract/spyglass_reports/SpyGlass/elab_summary.rpt                                        0                2 Please refer file './spyglass-1/calc_add_knl/lint/lint_abstract/spyglass_reports/SpyGlass/elab_summary.rpt' for elab summary report
+DetectTopDesignUnits DetectTopDesignUnits Info     /home/llhuang/PRIVATE/pj_example_rtl/source/xkcalc/kernel/adder/calc_add_knl.v                                            13                2 Module calc_add_knl is a top level design unit
+LINT_abstract01                           Info     ./spyglass-1/calc_add_knl/lint/lint_abstract/spyglass_reports/abstract_view/calc_add_knl_lint_abstract.sgdc                0                2 Abstract view for design 'calc_add_knl' succesfully created
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -1,0 +1,14 @@
+../../../document/description/rst_xkmsc/source/C04_aboutScript/index.rst:116:   #. collect markers like *TODO*, *NOTE*, *???* or *!!!*
+../../../source/xkmsc/kernel/fetcher/msc_fth.cpp:42:        // !!! - MSC_FLT_SIZE & + MSC_FLT_SIZE are introduced by the filtering operation
+../../../source/xkmsc/kernel/fetcher/msc_fth.cpp:47:        // !!! floor operation cannot be removed,
+../../../source/xkmsc/kernel/fetcher/msc_fth.cpp:48:        // !!! since "idxDstXBgn * cfg.datScalerX" may be lesser than 0,
+../../../source/xkmsc/kernel/fetcher/msc_fth.cpp:49:        // !!! while the implicit "int" casting is truncated towards 0
+../../../source/xkmsc/kernel/fetcher/msc_fth.cpp:50:        // !!! - 1 & + 2 are introduced by the 4-tap scaling
+../../../source/xkmsc/kernel/fetcher/msc_fth.cpp:69:        // !!! hack codes to avoid the fetch of extra pixels introduced by 4-tap scaling
+../../../source/xkmsc/kernel/msc_knl_dump.cpp:102:                // !!! do not supported by hardware;
+../../../source/xkmsc/kernel/msc_knl_dump.cpp:167:                // !!! do not supported by hardware;
+../../../source/xkmsc/unit/on-screen-display/msc_osd_load.cpp:19:    // !!! a special case
+../../../source/xkmsc/unit/scaler/msc_scl.cpp:38:    m_cfgFlgProc =                m_cfg->sclFlgProc; assert(m_cfgFlgProc);    // !!! scl must be enabled
+../../../source/xkmsc/unit/scaler/msc_scl_dump.cpp:38:    // !!! up to 3 extra pixels would be introduced to the 4 tap scaling
+../../../source/xkmsc/unit/on-screen-display/msc_osd.hpp:69:                                // !!! index of alpha should be rescaled back
+../../../source/xkmsc/unit/scaler/msc_scl.hpp:61:                // !!! floor operation cannot be removed, since the corresponding logic in function cpyDatIn adopts it
