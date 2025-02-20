@@ -1,0 +1,20 @@
+# local generated
+.vscode
+build/linux/*/cmake*
+build/linux/*/CMake*
+build/linux/*/Makefile
+build/windows/*/.vs
+build/windows/*/CMake*
+build/windows/*/Win32
+build/windows/*/*.cmake
+build/windows/*/*.dir
+build/windows/*/*.sln
+build/windows/*/*.vcxproj*
+build/windows/*/*/*.ilk
+build/windows/*/*/*.pdb
+document/*/*/build
+document/doxygen/*/html
+document/doxygen/*/latex
+script/run/*/session*
+
+# global maintained
