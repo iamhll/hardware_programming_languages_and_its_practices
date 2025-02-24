@@ -4,7 +4,7 @@
    ..  Author         : Huang Leilei
    ..  Status         : phase 000
    ..  Created        : 2025-02-18
-   ..  Description    : description about 第01讲 - 引子与一些科普 - 现在s
+   ..  Description    : description about 第01讲 - 引子与一些科普 - 现在
    ..
 .. -----------------------------------------------------------------------------
 
