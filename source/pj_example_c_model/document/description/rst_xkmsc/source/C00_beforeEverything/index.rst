@@ -238,7 +238,7 @@ VS Code
    .. image:: VSCode_step6.png
       :width: 800
 
-#. press F5 to run gdb
+#. press F5 to run gdb (it seems WSL doesnot support gdb)
 
    .. image:: VSCode_step7.png
       :width: 800

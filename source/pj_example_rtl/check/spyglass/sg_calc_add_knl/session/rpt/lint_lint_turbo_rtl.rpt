@@ -1,0 +1,10 @@
+###############  ###############
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Rule                 Alias                Severity File                                                                                                     Line               Wt Message
+===============================================================================
+TurboModeStatus      TurboModeStatus      Info     N.A.                                                                                                        0               10 Turbo-Mode is enabled in the current run as turbo_struct license feature successfully checked out
+ReportStopSummary    ReportStopSummary    Info     ./spyglass-1/calc_add_knl/lint/lint_turbo_rtl/spyglass_reports/SpyGlass/stop_summary.rpt                0               10 Design option(s) stop/stopfile/stopdir specified. Please see ./spyglass-1/calc_add_knl/lint/lint_turbo_rtl/spyglass_reports/SpyGlass/stop_summary.rpt to know the design units which have been stopped
+ElabSummary          ElabSummary          Info     ./spyglass-1/calc_add_knl/lint/lint_turbo_rtl/spyglass_reports/SpyGlass/elab_summary.rpt                0                2 Please refer file './spyglass-1/calc_add_knl/lint/lint_turbo_rtl/spyglass_reports/SpyGlass/elab_summary.rpt' for elab summary report
+DetectTopDesignUnits DetectTopDesignUnits Info     /home/llhuang/PRIVATE/pj_example_rtl/source/xkcalc/kernel/adder/calc_add_knl.v                     13                2 Module calc_add_knl is a top level design unit
+Av_initstate01       ResetState           Info     /home/llhuang/PRIVATE/pj_example_rtl/source/xkcalc/kernel/adder/calc_add_knl.v                     13               10 100 percent of sequential outputs are initialized with sets/resets and 0 percent sequential outputs are initialized by data path. Refer file: './spyglass-1/calc_add_knl/lint/lint_turbo_rtl/spyglass_reports/auto-verify/auto_verify.reg' for details
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

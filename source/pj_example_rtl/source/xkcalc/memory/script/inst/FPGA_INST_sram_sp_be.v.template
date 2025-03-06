@@ -1,0 +1,96 @@
+//------------------------------------------------------------------------------
+  //
+  //  Filename       : example.v
+  //  Author         : Huang Leilei
+  //  Status         : draft
+  //  Created        : 2025-02-18
+  //  Description    : plain memory for fpga platform
+  //                   (auto generated)
+  //
+//------------------------------------------------------------------------------
+
+`include "define_calc.vh"
+
+module example(
+  // global
+  clk         ,
+  // common
+  adr_i       ,
+  // write
+  wr_val_i    ,
+  wr_dat_i    ,
+  // read
+  rd_val_i    ,
+  rd_dat_o
+);
+
+
+//*** PARAMETER ****************************************************************
+
+  // local
+  localparam   SIZE                     = 'dsize             ;    // skip checkParamInputOutputRegAndWireDeclaration
+  localparam   SIZE_COL                 = 'dsize_col         ;    // skip checkParamInputOutputRegAndWireDeclaration
+
+  localparam   DATA_WD                  = 'ddata_wd          ;    // skip checkParamInputOutputRegAndWireDeclaration
+
+  // derived
+  localparam   SIZE_WD                  = `LOG2( SIZE )      ;
+
+
+//*** INPUT/OUTPUT *************************************************************
+
+  // global
+  input                                 clk                  ;
+
+  // common
+  input      [SIZE_WD         -1 :0]    adr_i                ;
+
+  // write
+  input      [DATA_WD/SIZE_COL-1 :0]    wr_val_i             ;
+  input      [DATA_WD         -1 :0]    wr_dat_i             ;
+
+  // read
+  input                                 rd_val_i             ;
+  output reg [DATA_WD         -1 :0]    rd_dat_o             ;
+
+
+//*** WIRE/REG *****************************************************************
+
+  // mem
+  reg        [DATA_WD         -1 :0]    mem_array[SIZE-1 :0] ;
+
+  // genvar
+  genvar                                gvIdx                ;
+
+
+//*** MAIN BODY ****************************************************************
+
+  // write
+  generate
+    for( gvIdx = 'd0 ;gvIdx < DATA_WD/SIZE_COL ;gvIdx = gvIdx + 'd1 ) begin : wrVal
+      always @(posedge clk ) begin
+        if( wr_val_i[gvIdx] ) begin
+          mem_array[adr_i][SIZE_COL*(gvIdx+'d1)-'d1-:SIZE_COL]
+               <= wr_dat_i[SIZE_COL*(gvIdx+'d1)-'d1-:SIZE_COL]
+          ;
+        end
+      end
+    end
+  endgenerate
+
+  // read
+  always @(posedge clk ) begin
+    if( rd_val_i ) begin
+      rd_dat_o <= mem_array[adr_i] ;
+    end
+    else begin
+      rd_dat_o <= 'dx ;
+    end
+  end
+
+
+//*** DEBUG ********************************************************************
+
+endmodule
+
+`include "undef_calc.vh"

@@ -1,0 +1,6 @@
+-f $ENV_CSTR_DIR_PRJ/source/xkcalc/kernel/fetcher/calc_fth_top_lib.f
+-f $ENV_CSTR_DIR_PRJ/source/xkcalc/kernel/adder/calc_add_top_lib.f
+-f $ENV_CSTR_DIR_PRJ/source/xkcalc/kernel/substrator/calc_sub_top_lib.f
+-f $ENV_CSTR_DIR_PRJ/source/xkcalc/kernel/multiplier/calc_mul_top_lib.f
+-f $ENV_CSTR_DIR_PRJ/source/xkcalc/kernel/divider/calc_div_top_lib.f
+-f $ENV_CSTR_DIR_PRJ/source/xkcalc/kernel/dumper/calc_dmp_top_lib.f

@@ -11,6 +11,11 @@
 About Source
 ============
 
+
+
+About xkmsc
+-----------
+
    Directory *source* contains **four** kinds of source files.
 
 *  :top: responsible for configuration management and multiple-frame processing.
@@ -22,7 +27,7 @@ About Source
 
 
 Common
-------
+......
 
    |  Directory *common* contains collection *COMMON*,
    |  which is made up of definitions, types, enumerators, structs, tables, and functions
@@ -30,7 +35,7 @@ Common
 
 
 Unit
-----
+....
 
    |  Directory *unit* contains class *UNIT* and its inheritors.
    |  As a C model, it should emulate the behaviors of RTL,
@@ -57,7 +62,7 @@ Unit
 
 
 Kernel
-------
+......
 
    Directory *kernel* contains 3 classes.
 
@@ -67,7 +72,7 @@ Kernel
 
 
 Top
----
+...
 
    Directory *top* contains file *msc.cpp* and struct *CFG*.
 
@@ -121,6 +126,25 @@ struct *CFG*
    |  As shown in the above figure and table, only one file needs to be manually maintained frequently,
    |  which largely reduces the burden to manage configurations
 
+configurations
+``````````````
+
+   detailed configurations are as follows:
+
+   .. include:: ../../../../../source/xkmsc/top/configuration/msc_cfg.rst
+
+
+About xkcalc
+------------
+
+   almost the same with xkmsc, except
+
+   .. table::
+      :align: left
+      :widths: auto
+
+      .. include:: ../../../../../source/xkcalc/top/configuration/calc_cfg.rst
+
 
 Other Information
 -----------------
@@ -128,13 +152,13 @@ Other Information
    Other Information is given below.
 
 Hierarchy
-`````````
+.........
 
    .. image:: hierarchy.png
       :width: 600
 
 Naming Rule
-```````````
+...........
 
 *  macro-definitions
 
@@ -202,17 +226,8 @@ Naming Rule
       =========== ============================
 
 
-Configuration
-`````````````
-
-   .. table::
-      :align: left
-      :widths: auto
-
-      .. include:: ../../../../../source/xkmsc/top/configuration/msc_cfg.rst
-
 Macro-Definition
-````````````````
+................
 
    .. table::
       :align: left

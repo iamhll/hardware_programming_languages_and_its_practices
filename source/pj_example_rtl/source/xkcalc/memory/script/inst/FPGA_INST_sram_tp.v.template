@@ -1,0 +1,111 @@
+//------------------------------------------------------------------------------
+  //
+  //  Filename       : example.v
+  //  Author         : Huang Leilei
+  //  Status         : draft
+  //  Created        : 2025-02-18
+  //  Description    : plain memory for fpga platform
+  //                   (auto generated)
+  //
+//------------------------------------------------------------------------------
+
+`include "define_calc.vh"
+
+module example(
+  // global
+  clk         ,
+  // write
+  wr_val_i    ,
+  wr_adr_i    ,
+  wr_dat_i    ,
+  // read
+  rd_val_i    ,
+  rd_adr_i    ,
+  rd_dat_o
+);
+
+
+//*** PARAMETER ****************************************************************
+
+  // local
+  localparam   SIZE            = 'dsize             ;    // skip checkParamInputOutputRegAndWireDeclaration
+
+  localparam   DATA_WD         = 'ddata_wd          ;    // skip checkParamInputOutputRegAndWireDeclaration
+
+  // derived
+  localparam   SIZE_WD         = `LOG2( SIZE )      ;
+
+
+//*** INPUT/OUTPUT *************************************************************
+
+  // global
+  input                        clk                  ;
+
+  // write
+  input                        wr_val_i             ;
+  input      [SIZE_WD-1 :0]    wr_adr_i             ;
+  input      [DATA_WD-1 :0]    wr_dat_i             ;
+
+  // read
+  input                        rd_val_i             ;
+  input      [SIZE_WD-1 :0]    rd_adr_i             ;
+  output reg [DATA_WD-1 :0]    rd_dat_o             ;
+
+
+//*** WIRE/REG *****************************************************************
+
+  // mem
+  reg        [DATA_WD-1 :0]    mem_array[SIZE-1 :0] ;
+
+
+//*** MAIN BODY ****************************************************************
+
+  // write
+  always @(posedge clk ) begin
+    if( wr_val_i ) begin
+      if( rd_val_i && (wr_adr_i==rd_adr_i) ) begin
+        mem_array[wr_adr_i] <= 'dx ;
+      end
+      else begin
+        mem_array[wr_adr_i] <= wr_dat_i ;
+      end
+    end
+  end
+
+  // read
+  always @(posedge clk ) begin
+    if( rd_val_i ) begin
+      if( wr_val_i && (wr_adr_i==rd_adr_i) ) begin
+        rd_dat_o <= 'dx ;
+      end
+      else begin
+        rd_dat_o <= mem_array[rd_adr_i] ;
+      end
+    end
+    else begin
+      rd_dat_o <= 'dx ;
+    end
+  end
+
+
+//*** DEBUG ********************************************************************
+
+  `ifdef SIM_KNOB_DBG_CALC
+
+    // sanity check
+    initial begin
+      forever begin
+        @(negedge clk );
+        if( rd_val_i && wr_val_i && (rd_adr_i==wr_adr_i) ) begin
+          $display( "\n\t SRAM ERROR: at %08d ns, read-write contention happened in %m!\n" ,$time );
+          #1000 ;
+          $finish ;
+        end
+      end
+    end
+
+  `endif
+
+endmodule
+
+`include "undef_calc.vh"

@@ -204,3 +204,8 @@ windows/xkmsc (Optional)
 
    ..       .. image:: buildWindows_Usage5.png
    ..          :width: 900
+
+linux/xkcalc
+````````````
+
+   almost the same with xkmsc

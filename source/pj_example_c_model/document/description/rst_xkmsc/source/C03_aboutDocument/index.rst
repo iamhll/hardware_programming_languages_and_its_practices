@@ -127,7 +127,7 @@ doxygen/xkmsc
       |  In the environment, change directory to *document/doxygen/xkmsc*,
       |  then you can
 
-   #. complete the above functions with
+   #. try the above functions with
 
       ::
 
