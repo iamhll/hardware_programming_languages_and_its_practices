@@ -4,7 +4,7 @@
     #  Filename       : build.sh
     #  Author         : Huang Leilei
     #  Status         : draft
-    #  Created        : 2022-11-18
+    #  Created        : 2025-02-18
     #  Description    : create a linux building environment for xkmsc
     #
 #-------------------------------------------------------------------------------
