@@ -19,6 +19,7 @@ CSTR_FLG_RUN ?=
 #--- LOCAL -----------------------------
 CSTR_DIR_PRJ = ../../..
 CSTR_DUT     = xkmsc
+CSTR_DUT_MOD = $(shell echo $(CSTR_DUT) | sed -e "s/\b\(.\)/\u\1/g")
 
 
 #--- DERIVED ---------------------------
@@ -47,7 +48,7 @@ default:
 #--- NORMAL TARGETS --------------------
 run: create
 	@	cd $(CSTR_SESSION)    ;\
-		    ./run$(CSTR_DUT).sh "$(CSTR_FLG_RUN)"
+		    ./run$(CSTR_DUT_MOD).sh "$(CSTR_FLG_RUN)"
 
 
 #--- TOOL TARGETS ----------------------
@@ -75,7 +76,7 @@ create: update
 	@	rm    -rf $(CSTR_SESSION)/*
 	@	mkdir -p  $(CSTR_SESSION)/script
 	@	mv $(CSTR_DIR_PRJ)/document/description/rst_$(CSTR_DUT)SessionTest/$(CSTR_DUT).html.tar    $(CSTR_SESSION)
-	@	cp run$(CSTR_DUT).sh                                                                       $(CSTR_SESSION)
+	@	cp run$(CSTR_DUT_MOD).sh                                                                   $(CSTR_SESSION)
 	@	cp $(CSTR_DIR_PRJ)/build/linux/$(CSTR_DUT)/$(CSTR_DUT)                                     $(CSTR_SESSION)
 	@	cp $(CSTR_DUT).cfg                                                                         $(CSTR_SESSION)
 	@	cp $(CSTR_DIR_PRJ)/script/get/getPsnr/*                                                    $(CSTR_SESSION)/script

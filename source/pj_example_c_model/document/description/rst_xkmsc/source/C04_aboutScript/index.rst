@@ -91,7 +91,7 @@ getAyuv1555FromYuv420p
       |  In WSL environment, change directory to *script/get/getAyuv1555FromYuv420p*,
       |  then you can
 
-   #. complete the above functions with
+   #. try the above functions with
 
       ::
 
@@ -139,7 +139,7 @@ runListUpdate
       |  In WSL environment, change directory to *script/run/runListUpdate*,
       |  then you can
 
-   *  complete the above functions with
+   *  try the above functions with
 
       ::
 
@@ -222,7 +222,7 @@ runXkmsc
       .. image:: scriptRunXkmsc_make.png
          :width: 670
 
-   #. complete the above functions with
+   #. try the above functions with
 
       ::
 

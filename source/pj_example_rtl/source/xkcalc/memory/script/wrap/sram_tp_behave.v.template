@@ -1,0 +1,176 @@
+//------------------------------------------------------------------------------
+  //
+  //  Filename       : example.v
+  //  Author         : Huang Leilei
+  //  Status         : draft
+  //  Created        : 2025-02-18
+  //  Description    : plain memory
+  //                   (auto generated)
+  //
+//------------------------------------------------------------------------------
+
+`include "define_calc.vh"
+
+module example(
+  // global
+  clk         ,
+  rstn        ,
+  // write
+  wr_val_i    ,
+  wr_adr_i    ,
+  wr_dat_i    ,
+  // read
+  rd_val_i    ,
+  rd_adr_i    ,
+  rd_val_o    ,
+  rd_dat_o
+);
+
+
+//*** PARAMETER ****************************************************************
+
+  // global
+  parameter    KNOB_REGOUT = -1            ;
+
+  parameter    INDX_BNK    = -1            ;
+
+  parameter    SIZE        = -1            ;
+
+  parameter    DATA_WD     = -1            ;
+
+  // local
+  localparam   SIZE_WD     = `LOG2( SIZE ) ;
+
+
+//*** INPUT/OUTPUT *************************************************************
+
+  // global
+  input                    clk             ;
+  input                    rstn            ;
+
+  // write
+  input                    wr_val_i        ;
+  input  [SIZE_WD-1 :0]    wr_adr_i        ;
+  input  [DATA_WD-1 :0]    wr_dat_i        ;
+
+  // read
+  input                    rd_val_i        ;
+  input  [SIZE_WD-1 :0]    rd_adr_i        ;
+  output                   rd_val_o        ;
+  output [DATA_WD-1 :0]    rd_dat_o        ;
+
+
+//*** WIRE/REG *****************************************************************
+
+  // read
+  wire   [DATA_WD-1 :0]    rd_dat_w        ;
+
+
+//*** MAIN BODY ****************************************************************
+//--- RAM ------------------------------
+  `ifdef KNOB_LIB_BEHAVE
+    // sram_tp_behave
+    sram_tp_behave #(
+      .KNOB_RNDOUT    ( 'd1         ),
+      .SIZE           ( SIZE        ),
+      .DATA_WD        ( DATA_WD     )
+    ) sram_tp_behave(
+      .clk            ( clk         ),
+      .wr_val_i       ( wr_val_i    ),
+      .wr_adr_i       ( wr_adr_i    ),
+      .wr_dat_i       ( wr_dat_i    ),
+      .rd_val_i       ( rd_val_i    ),
+      .rd_adr_i       ( rd_adr_i    ),
+      .rd_dat_o       ( rd_dat_w    )
+    );
+  `endif
+
+  `ifdef KNOB_LIB_GF_22
+
+    `include "GF_22_INST_EXAMPLE.vh"
+
+  `endif
+
+  `ifdef KNOB_LIB_GF_28
+
+    `include "GF_28_INST_EXAMPLE.vh"
+
+  `endif
+
+  `ifdef KNOB_LIB_HL_40
+
+    `include "HL_40_INST_EXAMPLE.vh"
+
+  `endif
+
+  `ifdef KNOB_LIB_FPGA
+
+    `include "FPGA_INST_EXAMPLE.vh"
+
+  `endif
+
+
+//--- OUTPUT ---------------------------
+  generate
+    if( KNOB_REGOUT == 'd1 ) begin : regOut
+      // variables
+      reg                   rd_val_d0_r ;
+      reg                   rd_val_d1_r ;
+      reg [DATA_WD-1 :0]    rd_dat_d1_r ;
+
+      // logic
+      assign rd_val_o = rd_val_d1_r ;
+      assign rd_dat_o = rd_dat_d1_r ;
+      always @(posedge clk or negedge rstn ) begin
+        if( !rstn ) begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+          rd_val_d0_r <= 'd0 ;
+          rd_val_d1_r <= 'd0 ;
+          rd_dat_d1_r <= 'd0 ;
+        end
+        else begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+            rd_val_d0_r <= rd_val_i    ;
+            rd_val_d1_r <= rd_val_d0_r ;
+          if( rd_val_d0_r ) begin
+            rd_dat_d1_r <= rd_dat_w    ;
+          end
+        end
+      end
+    end
+    else begin : notRegOut
+      // variables
+      reg    rd_val_d0_r ;
+
+      // logic
+      assign rd_val_o = rd_val_d0_r ;
+      assign rd_dat_o = rd_dat_w    ;
+      always @(posedge clk or negedge rstn ) begin
+        if( !rstn ) begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+          rd_val_d0_r <= 'd0 ;
+        end
+        else begin    // spyglass: Av_deadcode01 (if reported, it's okay)
+          rd_val_d0_r <= rd_val_i ;
+        end
+      end
+    end
+  endgenerate
+
+
+//*** DEBUG ********************************************************************
+
+  `ifdef SIM_KNOB_DBG_CALC
+
+    // sanity check
+    initial begin
+      wait( rstn );
+      if( KNOB_REGOUT == -'d1 ) begin
+        $display( "\n\t SRAM ERROR: KNOB_REGOUT in %m is not configured! \n" );
+        #1000 ;
+        $finish ;
+      end
+    end
+
+  `endif
+
+endmodule
+
+`include "undef_calc.vh"
