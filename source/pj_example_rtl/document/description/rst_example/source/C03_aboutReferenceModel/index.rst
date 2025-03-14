@@ -51,7 +51,7 @@ xkcalc
 *  Function
 
    #. |  generate test vectors according to the information specified by
-      |  parameter *LIST_VECTOR* (vector list), parameter *CSTR_DIR_VECT* (vector directory) and
+      |  parameter *CSTR_INFO_VECT_ALL* (vector list), parameter *CSTR_DIR_VECT* (vector directory) and
       |  configuration file *xkcalc.cfg*
 
 *  Dependency
