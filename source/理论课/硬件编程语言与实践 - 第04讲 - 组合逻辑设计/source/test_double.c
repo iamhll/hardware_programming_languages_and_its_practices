@@ -25,7 +25,7 @@ int main() {
     printf("sign                            : %lx\n", sign);
     printf("mantissa                        : %lx\n", mantissa);
     printf("exponent                        : %lx\n", exponent);
-    printf("(-1)^s * (1+M/2^52) * 2^(e-1023): %f\n", numCalc);
+    printf("(-1)^S * (1+M/2^52) * 2^(E-1023): %f\n", numCalc);
     if (num != numCalc)
         printf("ERROR\n!");
     return 0;
