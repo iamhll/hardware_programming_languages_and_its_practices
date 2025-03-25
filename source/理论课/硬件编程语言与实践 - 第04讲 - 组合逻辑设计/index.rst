@@ -4,11 +4,11 @@
    ..  Author         : Huang Leilei
    ..  Status         : phase 000
    ..  Created        : 2025-02-18
-   ..  Description    : description about 第04讲 - 设计流程 - 设计策略
+   ..  Description    : description about 第04讲 - 组合逻辑设计
    ..
 .. -----------------------------------------------------------------------------
 
-第04讲 - 设计流程 - 设计策略
+第04讲 - 组合逻辑设计
 --------------------------------------------------------------------------------
 
 .. image:: 幻灯片1.JPG
@@ -123,11 +123,25 @@ ALU
 浮点数运算
 `````````````````````````````````````````
 .. image:: 幻灯片70.JPG
-
-未完待续...
-
-
-思考题
-`````````````````````````````````````````
 .. image:: 幻灯片71.JPG
 .. image:: 幻灯片72.JPG
+.. image:: 幻灯片73.JPG
+.. image:: 幻灯片74.JPG
+.. image:: 幻灯片75.JPG
+.. image:: 幻灯片76.JPG
+.. image:: 幻灯片77.JPG
+.. image:: 幻灯片78.JPG
+.. image:: 幻灯片79.JPG
+.. image:: 幻灯片80.JPG
+.. image:: 幻灯片81.JPG
+.. image:: 幻灯片82.JPG
+.. image:: 幻灯片83.JPG
+.. image:: 幻灯片84.JPG
+.. image:: 幻灯片85.JPG
+.. image:: 幻灯片86.JPG
+.. image:: 幻灯片87.JPG
+.. image:: 幻灯片88.JPG
+.. image:: 幻灯片89.JPG
+.. image:: 幻灯片90.JPG
+.. image:: 幻灯片91.JPG
+.. image:: 幻灯片92.JPG
