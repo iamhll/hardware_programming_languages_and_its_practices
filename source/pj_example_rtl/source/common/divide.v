@@ -20,11 +20,11 @@ module divide(
 //*** PARAMETER DECLARATION ****************************************************
 
   // global
-  localparam    NUMB_ITR         = 'd12         ;
-  localparam    DATA_WD          = 'd8          ;
-  localparam    DATA_INN_WD      = 'd24         ;
-  localparam    DATA_2           = 'd2
-                                << DATA_INN_WD  ;
+  localparam    NUMB_ITR           = 'd12       ;
+  localparam    DATA_WD            = 'd8        ;
+  localparam    DATA_INN_WD        = 'd24       ;
+  localparam    DATA_2             = 'd2
+                                  << DATA_INN_WD ;
 
 
 //*** INPUT/OUTPUT DECLARATION *************************************************
