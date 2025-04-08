@@ -105,21 +105,21 @@ module cordic(
   // dat_x_w, dat_y_w
   // dat_z_w
   always @(*) begin
-      dat_x_w = DATA_K ;
-      dat_y_w = 'sd0 ;
-      dat_z_w = $signed({1'b0,dat_theta_i}) <<< (DATA_INN_ANG_FRC_WD-DATA_FRC_WD) ;
-    for( lpIdx = 'd0 ;lpIdx < NUMB_ITR ; lpIdx = lpIdx + 'd1 ) begin
-        dat_x_tmp_w = dat_x_w >>> lpIdx         ;
-        dat_y_tmp_w = dat_y_w >>> lpIdx         ;
+        dat_x_w     =  DATA_K                    ;
+        dat_y_w     = 'sd0                       ;
+        dat_z_w     = $signed({1'b0,dat_theta_i}) <<< (DATA_INN_ANG_FRC_WD-DATA_FRC_WD) ;
+    for( lpIdx = 'd0 ;lpIdx < NUMB_ITR ;lpIdx = lpIdx + 'd1 ) begin
+        dat_x_tmp_w =  dat_x_w >>> lpIdx         ;
+        dat_y_tmp_w =  dat_y_w >>> lpIdx         ;
       if( dat_z_w >= 'sd0 ) begin
-        dat_x_w     = dat_x_w -   dat_y_tmp_w   ;
-        dat_y_w     = dat_y_w +   dat_x_tmp_w   ;
-        dat_z_w     = dat_z_w -  `CORDIC_DATA_A ;
+        dat_x_w     =  dat_x_w -   dat_y_tmp_w   ;
+        dat_y_w     =  dat_y_w +   dat_x_tmp_w   ;
+        dat_z_w     =  dat_z_w -  `CORDIC_DATA_A ;
       end
       else begin
-        dat_x_w     = dat_x_w +   dat_y_tmp_w   ;
-        dat_y_w     = dat_y_w -   dat_x_tmp_w   ;
-        dat_z_w     = dat_z_w +  `CORDIC_DATA_A ;
+        dat_x_w     =  dat_x_w +   dat_y_tmp_w   ;
+        dat_y_w     =  dat_y_w -   dat_x_tmp_w   ;
+        dat_z_w     =  dat_z_w +  `CORDIC_DATA_A ;
       end
     end
   end
