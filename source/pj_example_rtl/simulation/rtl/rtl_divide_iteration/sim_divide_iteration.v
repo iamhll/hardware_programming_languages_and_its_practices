@@ -156,7 +156,6 @@ module `SIM_EVAL_TOP ;
     #( 5 * `SIM_DATA_PRD_CLK );
 
     // post
-    rstn    = 'd0 ;
     val_i   = 'd0 ;
     dat_a_i = 'd0 ;
     dat_b_i = 'd0 ;

@@ -4,7 +4,7 @@
    ..  Author         : Huang Leilei
    ..  Status         : phase 000
    ..  Created        : 2025-02-18
-   ..  Description    : description about 第05讲 - 组合逻辑设计
+   ..  Description    : description about 第05讲 - 时序逻辑设计
    ..
 .. -----------------------------------------------------------------------------
 
@@ -125,5 +125,18 @@ CRC校验
 .. image:: 幻灯片73.JPG
 .. image:: 幻灯片74.JPG
 .. image:: 幻灯片75.JPG
+.. image:: 幻灯片76.JPG
+.. image:: 幻灯片77.JPG
+.. image:: 幻灯片78.JPG
 
-未完待续...
+交通灯
+`````````````````````````````````````````
+.. image:: 幻灯片79.JPG
+.. image:: 幻灯片80.JPG
+.. image:: 幻灯片81.JPG
+.. image:: 幻灯片82.JPG
+.. image:: 幻灯片83.JPG
+.. image:: 幻灯片84.JPG
+.. image:: 幻灯片85.JPG
+.. image:: 幻灯片86.JPG
+.. image:: 幻灯片87.JPG

@@ -1,0 +1,42 @@
+x = -2:0.1:2;
+y1 = x; y2 = x; y3 = x; y4 = x; y5 = x; y6 = x;
+for i = 1:numel(x)
+    y1(i) = round(x(i), TieBreaker="fromzero");
+    y2(i) = round(x(i), TieBreaker="tozero");
+    y3(i) = round(x(i), TieBreaker="even");
+    y4(i) = round(x(i), TieBreaker="odd");
+    y5(i) = round(x(i), TieBreaker="plusinf");
+    y6(i) = round(x(i), TieBreaker="minusinf");
+end
+
+hold off;
+subplot(6,1,1);
+plot(x, y1, 'x');
+title('fromzero');
+axis([-2,2,-2.5,2.5]);
+grid on;
+subplot(6,1,2);
+plot(x, y2, 'x');
+title('tozero');
+axis([-2,2,-2.5,2.5]);
+grid on;
+subplot(6,1,3);
+plot(x, y3, 'x');
+title('even');
+axis([-2,2,-2.5,2.5]);
+grid on;
+subplot(6,1,4);
+plot(x, y4, 'x');
+title('odd');
+axis([-2,2,-2.5,2.5]);
+grid on;
+subplot(6,1,5);
+plot(x, y5, 'x');
+title('plusinf');
+axis([-2,2,-2.5,2.5]);
+grid on;
+subplot(6,1,6);
+plot(x, y6, 'x');
+title('minusinf');
+axis([-2,2,-2.5,2.5]);
+grid on;

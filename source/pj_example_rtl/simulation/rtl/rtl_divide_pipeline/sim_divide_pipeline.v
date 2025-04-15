@@ -156,7 +156,6 @@ module `SIM_EVAL_TOP ;
     #( 5 * `SIM_DATA_PRD_CLK );
 
     // post
-    rstn    = 'd0 ;
     val_i   = 'd0 ;
     dat_a_i = 'd0 ;
     dat_b_i = 'd0 ;
@@ -239,6 +238,32 @@ module `SIM_EVAL_TOP ;
 //*** DEBUG ********************************************************************
 
   `ifdef SIM_KNOB_DBG_CALC
+
+    reg signed [31:0] dat_w ;
+    initial begin
+      #( 10 * `SIM_DATA_PRD_CLK );
+      @(negedge clk );
+      dat_w = -8 ;
+      repeat( 16 ) begin
+        @(negedge clk );
+        dat_w = dat_w + 'sd1 ;
+      end
+      @(negedge clk );
+      $finish ;
+    end
+
+    wire signed [31:0] dat_rounded_w ;
+assign dat_rounded_w
+    = ( dat_w >>> 'd2 ) 
+    + ( ( dat_w[2:0] == 3'b110 )
+           ? 'sd0
+           : $signed({1'b0, dat_w[1]})
+         )
+;
+
+
+
+
 
   `endif
 

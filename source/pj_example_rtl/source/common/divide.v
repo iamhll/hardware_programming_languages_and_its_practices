@@ -80,7 +80,6 @@ module divide(
       dat_t_full_w = dat_t_w * dat_k_w ;
     //I0F24     I1F48
       dat_t_w = ((dat_t_full_w >> 'd23) + 'd1) >> 'd1 ;
-      #0.1 ;
     end
   end
 
