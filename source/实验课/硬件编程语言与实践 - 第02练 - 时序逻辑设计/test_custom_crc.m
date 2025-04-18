@@ -51,4 +51,23 @@ for idxTest = 1:1000
         fprintf("*** ERROR! ***\n");
         break;
     end
+
+    % print
+    mkdir(['../../pj_example_rtl/test_vector/', num2str(idxTest)]);
+    fp_inp = fopen(['../../pj_example_rtl/test_vector/', num2str(idxTest), '/CRC_dumpDatInp_S1I8F0.dat'], 'w');
+    fp_out = fopen(['../../pj_example_rtl/test_vector/', num2str(idxTest), '/CRC_dumpDatOut_S1I32F0.dat'], 'w');
+    fp_cfg = fopen(['../../pj_example_rtl/test_vector/', num2str(idxTest), '/dut_setting.vh'], 'w');
+    fprintf(fp_cfg, "// CRC\n");
+    fprintf(fp_cfg, "`define CRC_NUMB_INP       'd%d\n", num);
+    fprintf(fp_cfg, "`define CRC_SIZE_POLY      'h%x\n", width - 1);
+    fprintf(fp_cfg, "`define CRC_DATA_POLY      'h%s\n", poly);
+    fprintf(fp_cfg, "`define CRC_DATA_INIT      'h%s\n", init);
+    fprintf(fp_cfg, "`define CRC_DATA_XOROUT    'h%s\n", xorout);
+    fprintf(fp_cfg, "`define CRC_FLAG_REFIN     'h%x\n", refin);
+    fprintf(fp_cfg, "`define CRC_FLAG_REFOUT    'h%x\n", refout);
+    fprintf(fp_inp, "%x\n", dat);
+    fprintf(fp_out, "%x\n", crc_test);
+    fclose(fp_cfg);
+    fclose(fp_inp);
+    fclose(fp_out);
 end

@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
   //
-  //  Filename       : sim_divide.v
+  //  Filename       : sim_crc.v
   //  Author         : Huang Leilei
   //  Status         : draft
   //  Created        : 2025-02-18
-  //  Description    : [testbench] for [divide]
+  //  Description    : [testbench] for [crc]
   //
 //------------------------------------------------------------------------------
 
@@ -29,10 +29,10 @@
 
 //--- LOCAL (VARIABLE) -----------------
   // SIM
-  `define SIM_KNOB_CHK               'b1
-  `define SIM_KNOB_CHK_DIVIDE_DAT    'b1
+  `define SIM_KNOB_CHK            'b1
+  `define SIM_KNOB_CHK_CRC_DAT    'b1
   `ifdef  SIM_KNOB_DBG
-  `define SIM_KNOB_CHK_XXX           `SIM_KNOB_DBG
+  `define SIM_KNOB_CHK_XXX        `SIM_KNOB_DBG
   `endif
   `ifdef  SIM_KNOB_DBG
   `define SIM_KNOB_DBG_CALC
@@ -49,12 +49,11 @@
 
   `define SIM_CSTR_FILE_INIT_XXX    "XXX"
 
-  `define SIM_CSTR_FILE_CHKI_DIVIDE_DAT_A    "check_data/DIVIDE_DAT_A_S0I8F0.dat"
-  `define SIM_CSTR_FILE_CHKI_DIVIDE_DAT_B    "check_data/DIVIDE_DAT_B_S0I8F0.dat"
+  `define SIM_CSTR_FILE_CHKI_CRC_DAT    "check_data/CRC_dumpDatInp_S1I8F0.dat"
 
   `define SIM_CSTR_FILE_CHKI_XXX    "XXX"
 
-  `define SIM_CSTR_FILE_CHKO_DIVIDE_DAT_C    "check_data/DIVIDE_DAT_C_S0I8F8.dat"
+  `define SIM_CSTR_FILE_CHKO_CRC_DAT    "check_data/CRC_dumpDatOut_S1I32F0.dat"
 
   `define SIM_CSTR_FILE_CHKO_XXX    "XXX"
 
@@ -73,32 +72,45 @@ module `SIM_EVAL_TOP ;
 //*** PARAMETER ****************************************************************
 
   // global
-  //`include "localparam_divide.vh"
+  //`include "localparam_crc.vh"
 
   // local
-  localparam    DATA_WD    = 'd8        ;
+  localparam    DATA_INP_WD  = 'd8            ;
+  localparam    DATA_OUT_WD  = 'd32           ;
+
+  // derived
+  localparam    SIZE_OUT_WD       = `FUNC_LOG2( DATA_OUT_WD );
 
 
 //*** INPUT/OUTPUT *************************************************************
 
   // global
-  reg                      clk          ;
-  reg                      rstn         ;
+  reg                        clk              ;
+  reg                        rstn             ;
 
-  // dat_i
-  reg                      val_i        ;
-  reg  [DATA_WD  -1 :0]    dat_a_i      ;
-  reg  [DATA_WD  -1 :0]    dat_b_i      ;
+  // cfg_i
+  reg  [SIZE_OUT_WD-1 :0]    cfg_siz_poly_i   ;
+  reg  [DATA_OUT_WD-1 :0]    cfg_dat_poly_i   ;
+  reg  [DATA_OUT_WD-1 :0]    cfg_dat_init_i   ;
+  reg  [DATA_OUT_WD-1 :0]    cfg_dat_xorout_i ;
+  reg                        cfg_flg_refin_i  ;
+  reg                        cfg_flg_refout_i ;
 
-  // dat_o
-  wire                     val_o        ;
-  wire [DATA_WD*2-1 :0]    dat_c_o      ;
+  // val_i
+  reg                        val_i            ;
+  reg                        flg_fst_i        ;
+  reg                        flg_lst_i        ;
+  reg  [DATA_INP_WD-1 :0]    dat_i            ;
+
+  // val_o
+  wire                       val_o            ;
+  wire [DATA_OUT_WD-1 :0]    dat_o            ;
 
 
 //*** WIRE/REG *****************************************************************
 
   // seed
-  integer                  sim_dat_seed ;
+  integer                    sim_dat_seed     ;
 
 
 //*** SUB BENCH ****************************************************************
@@ -133,9 +145,16 @@ module `SIM_EVAL_TOP ;
   // main
   initial begin
     // init
-    val_i   = 'd0 ;
-    dat_a_i = 'd0 ;
-    dat_b_i = 'd0 ;
+    cfg_siz_poly_i   = 'd0 ;
+    cfg_dat_poly_i   = 'd0 ;
+    cfg_dat_init_i   = 'd0 ;
+    cfg_dat_xorout_i = 'd0 ;
+    cfg_flg_refin_i  = 'd0 ;
+    cfg_flg_refout_i = 'd0 ;
+    val_i            = 'd0 ;
+    flg_fst_i        = 'd0 ;
+    flg_lst_i        = 'd0 ;
+    dat_i            = 'd0 ;
 
     // delay
     #( 5 * `SIM_DATA_PRD_CLK );
@@ -148,17 +167,24 @@ module `SIM_EVAL_TOP ;
     $display( "" );
 
     // core
-    -> sim_event_init_divide_cfg     ;
-    -> sim_event_chki_divide_dat_bgn ;
-    @  sim_event_chki_divide_dat_end ;
+    -> sim_event_init_crc_cfg     ;
+    -> sim_event_chki_crc_dat_bgn ;
+    @  sim_event_chki_crc_dat_end ;
 
     // delay
     #( 5 * `SIM_DATA_PRD_CLK );
 
     // post
-    val_i   = 'd0 ;
-    dat_a_i = 'd0 ;
-    dat_b_i = 'd0 ;
+    cfg_siz_poly_i   = 'd0 ;
+    cfg_dat_poly_i   = 'd0 ;
+    cfg_dat_init_i   = 'd0 ;
+    cfg_dat_xorout_i = 'd0 ;
+    cfg_flg_refin_i  = 'd0 ;
+    cfg_flg_refout_i = 'd0 ;
+    val_i            = 'd0 ;
+    flg_fst_i        = 'd0 ;
+    flg_lst_i        = 'd0 ;
+    dat_i            = 'd0 ;
 
     // log
     #( 1000 * `SIM_DATA_PRD_CLK );
@@ -171,15 +197,23 @@ module `SIM_EVAL_TOP ;
   // begin of DUT
     `DUT_EVAL_TOP dut(
       // global
-      .clk        ( clk        ),
-      .rstn       ( rstn       ),
-      // dat_i
-      .val_i      ( val_i      ),
-      .dat_a_i    ( dat_a_i    ),
-      .dat_b_i    ( dat_b_i    ),
-      // dat_o
-      .val_o      ( val_o      ),
-      .dat_c_o    ( dat_c_o    )
+      .clk                 ( clk                 ),
+      .rstn                ( rstn                ),
+      // cfg_i
+      .cfg_siz_poly_i      ( cfg_siz_poly_i      ),
+      .cfg_dat_poly_i      ( cfg_dat_poly_i      ),
+      .cfg_dat_init_i      ( cfg_dat_init_i      ),
+      .cfg_dat_xorout_i    ( cfg_dat_xorout_i    ),
+      .cfg_flg_refin_i     ( cfg_flg_refin_i     ),
+      .cfg_flg_refout_i    ( cfg_flg_refout_i    ),
+      // val_i
+      .val_i               ( val_i               ),
+      .flg_fst_i           ( flg_fst_i           ),
+      .flg_lst_i           ( flg_lst_i           ),
+      .dat_i               ( dat_i               ),
+      // val_o
+      .val_o               ( val_o               ),
+      .dat_o               ( dat_o               )
     );
   // end   of DUT
 
@@ -238,28 +272,6 @@ module `SIM_EVAL_TOP ;
 //*** DEBUG ********************************************************************
 
   `ifdef SIM_KNOB_DBG_CALC
-
-    reg signed [31:0] dat_w ;
-    initial begin
-      #( 10 * `SIM_DATA_PRD_CLK );
-      @(negedge clk );
-      dat_w = -8 ;
-      repeat( 16 ) begin
-        @(negedge clk );
-        dat_w = dat_w + 'sd1 ;
-      end
-      @(negedge clk );
-      $finish ;
-    end
-
-    wire signed [31:0] dat_rounded_w ;
-    assign dat_rounded_w
-        = ( dat_w >>> 'd2 ) 
-        + ( ( dat_w[2:0] == 3'b110 )
-               ? 'sd0
-               : $signed({1'b0, dat_w[1]})
-             )
-    ;
 
   `endif
 

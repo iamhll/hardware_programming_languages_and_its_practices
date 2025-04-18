@@ -4,7 +4,7 @@
   //  Author         : Huang Leilei
   //  Status         : draft
   //  Created        : 2025-02-18
-  //  Description    : [sub-testbench dat] for [example]
+  //  Description    : [sub-testbench dat] for [calc_add_knl]
   //
 //------------------------------------------------------------------------------
 

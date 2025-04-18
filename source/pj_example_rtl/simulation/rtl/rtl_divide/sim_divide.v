@@ -73,7 +73,7 @@ module `SIM_EVAL_TOP ;
 //*** PARAMETER ****************************************************************
 
   // global
-  `include "localparam_calc.vh"
+  //`include "localparam_divide.vh"
 
   // local
   localparam    DATA_WD    = 'd8        ;

@@ -72,7 +72,7 @@ module `SIM_EVAL_TOP ;
 //*** PARAMETER ****************************************************************
 
   // global
-  `include "localparam_calc.vh"
+  //`include "localparam_cordic.vh"
 
   // local
   localparam    DATA_WD  = 'd17       ;
