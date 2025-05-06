@@ -68,5 +68,30 @@ FIFO
 .. image:: 幻灯片40.JPG
 .. image:: 幻灯片41.JPG
 .. image:: 幻灯片42.JPG
+.. image:: 幻灯片43.JPG
 
-未完待续...
+LIFO
+`````````````````````````````````````````
+.. image:: 幻灯片44.JPG
+.. image:: 幻灯片45.JPG
+.. image:: 幻灯片46.JPG
+.. image:: 幻灯片47.JPG
+
+CAM
+`````````````````````````````````````````
+.. image:: 幻灯片48.JPG
+.. image:: 幻灯片49.JPG
+.. image:: 幻灯片50.JPG
+.. image:: 幻灯片51.JPG
+.. image:: 幻灯片52.JPG
+.. image:: 幻灯片53.JPG
+
+ONFI
+`````````````````````````````````````````
+.. image:: 幻灯片54.JPG
+.. image:: 幻灯片55.JPG
+.. image:: 幻灯片56.JPG
+.. image:: 幻灯片57.JPG
+.. image:: 幻灯片58.JPG
+.. image:: 幻灯片59.JPG
+.. image:: 幻灯片60.JPG
