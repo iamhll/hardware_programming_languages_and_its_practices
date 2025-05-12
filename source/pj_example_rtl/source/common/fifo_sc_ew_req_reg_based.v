@@ -197,7 +197,7 @@ module fifo_sc_ew_req_reg_based(
         @(posedge rstn );
         forever begin
           @(posedge clk );
-          if( rd_val_i ) begin
+          if( rd_val_o ) begin
             $fdisplay( fp_log_o ,"%x" ,rd_dat_o );
           end
         end
