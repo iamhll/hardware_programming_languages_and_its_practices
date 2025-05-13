@@ -55,14 +55,14 @@ ALU
 格雷码转二进制
 `````````````````````````````````````````
 .. image:: 幻灯片23.JPG
+.. image:: 幻灯片24.JPG
 
 差错控制
 `````````````````````````````````````````
-.. image:: 幻灯片24.JPG
+.. image:: 幻灯片25.JPG
 
 除法
 `````````````````````````````````````````
-.. image:: 幻灯片25.JPG
 .. image:: 幻灯片26.JPG
 .. image:: 幻灯片27.JPG
 .. image:: 幻灯片28.JPG
@@ -75,27 +75,27 @@ ALU
 .. image:: 幻灯片35.JPG
 .. image:: 幻灯片36.JPG
 .. image:: 幻灯片37.JPG
+.. image:: 幻灯片38.JPG
 
 乘方
 `````````````````````````````````````````
-.. image:: 幻灯片38.JPG
 .. image:: 幻灯片39.JPG
 .. image:: 幻灯片40.JPG
 .. image:: 幻灯片41.JPG
 .. image:: 幻灯片42.JPG
+.. image:: 幻灯片43.JPG
 
 开方
 `````````````````````````````````````````
-.. image:: 幻灯片43.JPG
 .. image:: 幻灯片44.JPG
 .. image:: 幻灯片45.JPG
 .. image:: 幻灯片46.JPG
 .. image:: 幻灯片47.JPG
 .. image:: 幻灯片48.JPG
+.. image:: 幻灯片49.JPG
 
 对数
 `````````````````````````````````````````
-.. image:: 幻灯片49.JPG
 .. image:: 幻灯片50.JPG
 .. image:: 幻灯片51.JPG
 .. image:: 幻灯片52.JPG
@@ -104,10 +104,10 @@ ALU
 .. image:: 幻灯片55.JPG
 .. image:: 幻灯片56.JPG
 .. image:: 幻灯片57.JPG
+.. image:: 幻灯片58.JPG
 
 三角函数
 `````````````````````````````````````````
-.. image:: 幻灯片58.JPG
 .. image:: 幻灯片59.JPG
 .. image:: 幻灯片60.JPG
 .. image:: 幻灯片61.JPG
@@ -119,10 +119,10 @@ ALU
 .. image:: 幻灯片67.JPG
 .. image:: 幻灯片68.JPG
 .. image:: 幻灯片69.JPG
+.. image:: 幻灯片70.JPG
 
 浮点数运算
 `````````````````````````````````````````
-.. image:: 幻灯片70.JPG
 .. image:: 幻灯片71.JPG
 .. image:: 幻灯片72.JPG
 .. image:: 幻灯片73.JPG
@@ -145,3 +145,4 @@ ALU
 .. image:: 幻灯片90.JPG
 .. image:: 幻灯片91.JPG
 .. image:: 幻灯片92.JPG
+.. image:: 幻灯片93.JPG
