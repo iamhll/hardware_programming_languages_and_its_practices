@@ -24,9 +24,14 @@
 .. image:: 幻灯片8.JPG
 .. image:: 幻灯片9.JPG
 
+https://www.arm.com/architecture/system-architectures/amba/amba-specifications
+
 APB2
 `````````````````````````````````````````
 .. image:: 幻灯片10.JPG
+
+https://developer.arm.com/documentation/ihi0011/a/ 
+
 .. image:: 幻灯片11.JPG
 .. image:: 幻灯片12.JPG
 .. image:: 幻灯片13.JPG
@@ -34,6 +39,9 @@ APB2
 APB3
 `````````````````````````````````````````
 .. image:: 幻灯片14.JPG
+
+https://developer.arm.com/documentation/ihi0024/b 
+
 .. image:: 幻灯片15.JPG
 .. image:: 幻灯片16.JPG
 .. image:: 幻灯片17.JPG
@@ -42,6 +50,9 @@ APB3
 APB4
 `````````````````````````````````````````
 .. image:: 幻灯片19.JPG
+
+https://developer.arm.com/documentation/ihi0024/c 
+
 .. image:: 幻灯片20.JPG
 .. image:: 幻灯片21.JPG
 .. image:: 幻灯片22.JPG
@@ -51,6 +62,9 @@ APB4
 APB5
 `````````````````````````````````````````
 .. image:: 幻灯片25.JPG
+
+https://developer.arm.com/documentation/ihi0024/latest/ 
+
 .. image:: 幻灯片26.JPG
 .. image:: 幻灯片27.JPG
 .. image:: 幻灯片28.JPG
@@ -65,6 +79,9 @@ APB的历史
 AXI3
 `````````````````````````````````````````
 .. image:: 幻灯片33.JPG
+
+https://developer.arm.com/documentation/ihi0022/b
+
 .. image:: 幻灯片34.JPG
 .. image:: 幻灯片35.JPG
 .. image:: 幻灯片36.JPG
@@ -95,6 +112,9 @@ AXI3
 AXI4
 `````````````````````````````````````````
 .. image:: 幻灯片60.JPG
+
+https://developer.arm.com/documentation/ihi0022/e 
+
 .. image:: 幻灯片61.JPG
 .. image:: 幻灯片62.JPG
 .. image:: 幻灯片63.JPG

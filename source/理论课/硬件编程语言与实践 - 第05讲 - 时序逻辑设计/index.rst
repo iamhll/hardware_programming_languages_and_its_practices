@@ -116,8 +116,14 @@ CRC校验
 .. image:: 幻灯片67.JPG
 .. image:: 幻灯片68.JPG
 .. image:: 幻灯片69.JPG
+
+http://www.ip33.com/crc.html
+
 .. image:: 幻灯片70.JPG
 .. image:: 幻灯片71.JPG
+
+http://www.ip33.com/crc.html
+
 
 分支预测
 `````````````````````````````````````````

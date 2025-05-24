@@ -32,6 +32,9 @@
 ........................................
 .. image:: 幻灯片14.JPG
 .. image:: 幻灯片15.JPG
+
+http://www.ip33.com/crc.html
+
 .. image:: 幻灯片16.JPG
 .. image:: 幻灯片17.JPG
 .. image:: 幻灯片18.JPG

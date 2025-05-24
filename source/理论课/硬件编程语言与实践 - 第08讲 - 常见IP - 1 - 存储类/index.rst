@@ -17,6 +17,10 @@
 ........................................
 .. image:: 幻灯片2.JPG
 .. image:: 幻灯片3.JPG
+
+https://www.scensmart.com/general-description-of-soc/rockchip-rk3588-arm-8k-soc/
+https://www.longsto.com/product/36.html
+
 .. image:: 幻灯片4.JPG
 
 存储媒介
@@ -90,6 +94,9 @@ ONFI
 `````````````````````````````````````````
 .. image:: 幻灯片54.JPG
 .. image:: 幻灯片55.JPG
+
+https://onfi.org/files/ONFI_5_2_Rev1.0.pdf
+
 .. image:: 幻灯片56.JPG
 .. image:: 幻灯片57.JPG
 .. image:: 幻灯片58.JPG
