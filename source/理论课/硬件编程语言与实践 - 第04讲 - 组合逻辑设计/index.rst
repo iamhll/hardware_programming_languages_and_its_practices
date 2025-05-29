@@ -145,4 +145,3 @@ ALU
 .. image:: 幻灯片90.JPG
 .. image:: 幻灯片91.JPG
 .. image:: 幻灯片92.JPG
-.. image:: 幻灯片93.JPG

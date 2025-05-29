@@ -113,12 +113,59 @@ AXI4
 `````````````````````````````````````````
 .. image:: 幻灯片60.JPG
 
-https://developer.arm.com/documentation/ihi0022/e 
+https://developer.arm.com/documentation/ihi0022/e
 
 .. image:: 幻灯片61.JPG
 .. image:: 幻灯片62.JPG
 .. image:: 幻灯片63.JPG
 .. image:: 幻灯片64.JPG
 .. image:: 幻灯片65.JPG
+.. image:: 幻灯片66.JPG
+.. image:: 幻灯片67.JPG
+.. image:: 幻灯片68.JPG
+.. image:: 幻灯片69.JPG
+.. image:: 幻灯片70.JPG
+.. image:: 幻灯片71.JPG
+.. image:: 幻灯片72.JPG
+.. image:: 幻灯片73.JPG
+.. image:: 幻灯片74.JPG
+.. image:: 幻灯片75.JPG
+
+AXI5
+`````````````````````````````````````````
+.. image:: 幻灯片76.JPG
+
+https://developer.arm.com/documentation/ihi0022/latest
+
+片内通信
+........................................
+.. image:: 幻灯片77.JPG
+.. image:: 幻灯片78.JPG
+.. image:: 幻灯片79.JPG
+
+UART
+`````````````````````````````````````````
+.. image:: 幻灯片80.JPG
+.. image:: 幻灯片81.JPG
+.. image:: 幻灯片82.JPG
+.. image:: 幻灯片83.JPG
+.. image:: 幻灯片84.JPG
+
+SPI
+`````````````````````````````````````````
+.. image:: 幻灯片85.JPG
+.. image:: 幻灯片86.JPG
+.. image:: 幻灯片87.JPG
+.. image:: 幻灯片88.JPG
+.. image:: 幻灯片89.JPG
+
+I2C
+`````````````````````````````````````````
+.. image:: 幻灯片90.JPG
+.. image:: 幻灯片91.JPG
+.. image:: 幻灯片92.JPG
+.. image:: 幻灯片93.JPG
+.. image:: 幻灯片94.JPG
+.. image:: 幻灯片95.JPG
 
 未完待续...
