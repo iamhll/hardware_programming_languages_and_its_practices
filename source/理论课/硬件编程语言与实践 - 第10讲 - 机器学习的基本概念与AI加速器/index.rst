@@ -64,49 +64,46 @@
 .. image:: 幻灯片39.JPG
 .. image:: 幻灯片40.JPG
 .. image:: 幻灯片41.JPG
-
-未完待续...
-
-.. .. image:: 幻灯片42.JPG
-.. .. image:: 幻灯片43.JPG
-.. .. image:: 幻灯片44.JPG
-.. .. image:: 幻灯片45.JPG
-.. 
-.. 一个小例子（矩阵乘加）
-.. `````````````````````````````````````````
-.. .. image:: 幻灯片46.JPG
-.. .. image:: 幻灯片47.JPG
-.. .. image:: 幻灯片48.JPG
-.. .. image:: 幻灯片49.JPG
-.. .. image:: 幻灯片50.JPG
-.. .. image:: 幻灯片51.JPG
-.. .. image:: 幻灯片52.JPG
-.. .. image:: 幻灯片53.JPG
-.. .. image:: 幻灯片54.JPG
-.. .. image:: 幻灯片55.JPG
-.. .. image:: 幻灯片56.JPG
-.. .. image:: 幻灯片57.JPG
-.. .. image:: 幻灯片58.JPG
-.. .. image:: 幻灯片59.JPG
-.. .. image:: 幻灯片60.JPG
-.. .. image:: 幻灯片61.JPG
-.. .. image:: 幻灯片62.JPG
-.. .. image:: 幻灯片63.JPG
-.. .. image:: 幻灯片64.JPG
-.. .. image:: 幻灯片65.JPG
-.. .. image:: 幻灯片66.JPG
-.. .. image:: 幻灯片67.JPG
-.. .. image:: 幻灯片68.JPG
-.. .. image:: 幻灯片69.JPG
-.. .. image:: 幻灯片70.JPG
-.. .. image:: 幻灯片71.JPG
-.. .. image:: 幻灯片72.JPG
-.. .. image:: 幻灯片73.JPG
-.. .. image:: 幻灯片74.JPG
-.. .. image:: 幻灯片75.JPG
-.. .. image:: 幻灯片76.JPG
-.. .. image:: 幻灯片77.JPG
-.. .. image:: 幻灯片78.JPG
-.. .. image:: 幻灯片79.JPG
-.. .. image:: 幻灯片80.JPG
-.. .. image:: 幻灯片81.JPG
+.. image:: 幻灯片42.JPG
+.. image:: 幻灯片43.JPG
+.. image:: 幻灯片44.JPG
+.. image:: 幻灯片45.JPG
+ 
+一个小例子（矩阵乘加）
+........................................
+.. image:: 幻灯片46.JPG
+.. image:: 幻灯片47.JPG
+.. image:: 幻灯片48.JPG
+.. image:: 幻灯片49.JPG
+.. image:: 幻灯片50.JPG
+.. image:: 幻灯片51.JPG
+.. image:: 幻灯片52.JPG
+.. image:: 幻灯片53.JPG
+.. image:: 幻灯片54.JPG
+.. image:: 幻灯片55.JPG
+.. image:: 幻灯片56.JPG
+.. image:: 幻灯片57.JPG
+.. image:: 幻灯片58.JPG
+.. image:: 幻灯片59.JPG
+.. image:: 幻灯片60.JPG
+.. image:: 幻灯片61.JPG
+.. image:: 幻灯片62.JPG
+.. image:: 幻灯片63.JPG
+.. image:: 幻灯片64.JPG
+.. image:: 幻灯片65.JPG
+.. image:: 幻灯片66.JPG
+.. image:: 幻灯片67.JPG
+.. image:: 幻灯片68.JPG
+.. image:: 幻灯片69.JPG
+.. image:: 幻灯片70.JPG
+.. image:: 幻灯片71.JPG
+.. image:: 幻灯片72.JPG
+.. image:: 幻灯片73.JPG
+.. image:: 幻灯片74.JPG
+.. image:: 幻灯片75.JPG
+.. image:: 幻灯片76.JPG
+.. image:: 幻灯片77.JPG
+.. image:: 幻灯片78.JPG
+.. image:: 幻灯片79.JPG
+.. image:: 幻灯片80.JPG
+.. image:: 幻灯片81.JPG
