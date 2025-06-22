@@ -147,11 +147,9 @@ module fifo_sc_ew_req_sp_sram_based(
                    outer_wr_dat_0_r <= outer_wr_dat_2_r ;
                    outer_wr_dat_1_r <= wr_dat_i ;
             end
-            else if( outer_rd_val_i_w ) begin
-                   outer_wr_dat_0_r <= outer_wr_dat_1_r ;
-                   outer_wr_dat_1_r <= outer_wr_dat_2_r ;
-                   outer_wr_dat_2_r <= wr_dat_i ;
-            end
+          //else if( outer_rd_val_i_w ) begin
+          //       impossible
+          //end
           //else begin
           //       impossible
           //end
@@ -174,12 +172,11 @@ module fifo_sc_ew_req_sp_sram_based(
             if( inner_wr_val_i_w ) begin
                    outer_wr_dat_0_r <= outer_wr_dat_2_r ;
             end
-            else if( outer_rd_val_i_w ) begin
-                   outer_wr_dat_0_r <= outer_wr_dat_1_r ;
-                   outer_wr_dat_1_r <= outer_wr_dat_2_r ;
-            end
+          //else if( outer_rd_val_i_w ) begin
+          //       impossible
+          //end
           //else begin
-          //       do nothing
+          //       impossible
           //end
           end
         endcase
