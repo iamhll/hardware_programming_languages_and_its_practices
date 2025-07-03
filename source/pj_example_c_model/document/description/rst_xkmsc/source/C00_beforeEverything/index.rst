@@ -238,7 +238,7 @@ VS Code
    .. image:: VSCode_step6.png
       :width: 800
 
-#. press F5 to run gdb (it seems WSL doesnot support gdb)
+#. press F5 to run gdb (it seems WSL1 does not support gdb. to fix it, you can update it to WSL2 with "wsl --update" in "Windows PowerShell" environment)
 
    .. image:: VSCode_step7.png
       :width: 800
