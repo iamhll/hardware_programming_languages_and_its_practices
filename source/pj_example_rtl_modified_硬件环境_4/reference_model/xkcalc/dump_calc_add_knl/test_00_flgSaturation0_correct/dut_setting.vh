@@ -1,0 +1,21 @@
+// KERNEL
+`define CALC_SIZE_FRAME_X    'd16
+`define CALC_SIZE_FRAME_Y    'd32
+`define CALC_SIZE_FRAME_Z    'd8
+
+// UNIT
+`define CALC_SIZE_UNIT_X    'd2
+`define CALC_SIZE_UNIT_Y    'd2
+`define CALC_SIZE_UNIT_Z    'd8
+
+// UNIT ADD
+`define CALC_ADD_FLAG_SATURATION    'd0
+
+// UNIT SUB
+`define CALC_SUB_FLAG_SATURATION    'd0
+
+// UNIT DIV
+`define CALC_DIV_FLAG_SATURATION    'd0
+
+// UNIT MUL
+`define CALC_MUL_FLAG_SATURATION    'd0
