@@ -1,0 +1,10 @@
+// skip checkFileHeader
+
+example example(
+  .clk         ( clk         ),
+  .adr_i       ( adr_i       ),
+  .wr_val_i    ( wr_val_w    ),    // !!! this is not a typo.
+  .wr_dat_i    ( wr_dat_i    ),
+  .rd_val_i    ( rd_val_i    ),
+  .rd_dat_o    ( rd_dat_w    )
+);
