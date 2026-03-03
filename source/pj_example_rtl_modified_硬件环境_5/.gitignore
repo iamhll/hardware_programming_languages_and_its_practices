@@ -1,0 +1,10 @@
+# local generated
+document/*/*/build
+reference_model/*/dump
+synthesis/quartus/*/output_files
+synthesis/quartus/*/qdb
+synthesis/quartus/*/*.qpf
+synthesis/quartus/*/*.qsf
+synthesis/quartus/*/*.qws
+
+# global maintained

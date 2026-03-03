@@ -1,0 +1,11 @@
+// skip checkFileHeader
+
+example example(
+  .clk         ( clk         ),
+  .wr_val_i    ( wr_val_i    ),
+  .wr_adr_i    ( wr_adr_i    ),
+  .wr_dat_i    ( wr_dat_i    ),
+  .rd_val_i    ( rd_val_i    ),
+  .rd_adr_i    ( rd_adr_i    ),
+  .rd_dat_o    ( rd_dat_w    )
+);
