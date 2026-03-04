@@ -1,0 +1,3 @@
+../../../document/description/rst_xkmsc/source/C04_aboutScript/index.rst:116:   #. collect markers like *TODO*, *NOTE*, *???* or *!!!*
+../../../document/description/rst_xkmsc/source/C04_aboutScript/index.rst:117:   #. collect file status (draft, phase ??? or something alike)
+../../../document/description/rst_xkmsc/source/C08_versionControl/index.rst:59:      |                           | .. image:: flow03.png | clone           | git clone git@code.aliyun.com:llhuang/???.git |

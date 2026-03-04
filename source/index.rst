@@ -3,7 +3,7 @@
    ..  Filename       : index.rst
    ..  Author         : Huang Leilei
    ..  Status         : phase 000
-   ..  Created        : 2025-02-18
+   ..  Created        : 2026-03-03
    ..  Description    : description about hardware programming languages and its practices
    ..
 .. -----------------------------------------------------------------------------
@@ -40,10 +40,10 @@
 实验课课件
 ----------------------------------------
 
-.. .. toctree::
-..    :maxdepth: 2
-.. 
-..    实验课/硬件编程语言与实践 - 第00练 - 软件环境/index
+.. toctree::
+   :maxdepth: 2
+
+   实验课/硬件编程语言与实践 - 第00练 - 软件环境/index
 ..    实验课/硬件编程语言与实践 - 第00练 - 硬件环境/index
 ..    实验课/硬件编程语言与实践 - 第01练 - 组合逻辑设计/index
 ..    实验课/硬件编程语言与实践 - 第02练 - 时序逻辑设计/index

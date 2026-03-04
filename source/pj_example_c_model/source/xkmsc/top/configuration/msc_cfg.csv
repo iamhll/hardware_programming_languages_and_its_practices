@@ -1,0 +1,72 @@
+domain,name,level,size,short key,type,minimum value,maximum value,precision,default value,description
+virtual,strFileCfg,rough,/,c,/,/,/,/,/,location of the configuration file
+virtual,help,rough,/,/,/,/,/,/,/,to print help information
+virtual,show,rough,/,/,/,/,/,/,/,to show configuration value
+virtual,dryRun,rough,/,/,/,/,/,/,/,to check input without running
+changeable,idxFrame,detailed,1,/,int,/,/,/,/,index of the current frame
+changeable,idxUnitX,detailed,1,/,int,/,/,/,/,index of the current unit in 1st dimension
+changeable,idxUnitY,detailed,1,/,int,/,/,/,/,index of the current unit in 2nd dimension
+top,strFileIn,rough,1,i,string,/,/,/,/mnt/e/DOWNLOAD/SEQUENCE/HM/BasketballPass/BasketballPass.yuv,full location of the input file
+top,strFileOut,rough,1,o,string,/,/,/,out.yuv,full location of the output file
+top,strPrefixDump,rough,1,/,string,/,/,/,/,dump prefix for debug data
+top,strPrefixLoad,detailed,1,/,string,/,/,/,/,load prefix for debug data
+top,numFrame,rough,1,/,int,/,/,/,10,number of the frames to be processed
+top,sizFrameX,rough,1,/,int,1,4096,/,416,size of frames in 1st dimension
+top,sizFrameY,rough,1,/,int,1,4096,/,240,size of frames in 2nd dimension
+top,sizFrameZ,rough,1,/,int,1,3,/,3,size of frames in 3rd dimension
+top,enmFormatIn,rough,1,/,int,0,1,/,0,enumerator for input format (<value> 0: yuv420p 1: nv12)
+top,enmProc,rough,1,/,int,0,1,/,0,enumerator for processing behavior (<value> 0: software 1: hardware)
+top,enmInfo,rough,1,/,int,0,4,/,2,enumerator for information level (<value> 0: none 1: system 2: top 3: module 4: common)
+top,enmLoad,rough,1,/,int,0,2,/,0,enumerator for load source (<value> 0: pipeline 1: file 2: random)
+top,enmDump,rough,1,/,int,0,2,/,0,enumerator for dump level (<value> 0: none 1: inout 2: intermediate)
+top,datSeed,rough,1,r,int,/,/,/,0,value of random seed
+top,sizUnitX,rough,1,/,int,1,64,/,16,size of units' 1st dimension
+top,sizUnitY,rough,1,/,int,1,64,/,16,size of units' 2nd dimension
+scaler,sclFlgProc,rough,1,/,bool,/,/,/,1,enable flag for processing
+scaler,sclNumTap,rough,1,/,int,2,4,/,4,number of filter tap (<value> 0: 2 1: 4)
+scaler,sclSizFrameX,rough,1,/,int,1,8192,/,548,size of frames in 1st dimension
+scaler,sclSizFrameY,rough,1,/,int,1,8192,/,316,size of frames in 2nd dimension
+scaler,sclEnmMode,rough,1,/,int,0,1,/,0,enumerator for mode (<value> 0: bilinear 1: bicubic)
+scaler,sclEnmLoad,rough,1,/,int,0,2,/,0,enumerator for load source (<value> 0: pipeline 1: file 2: random)
+scaler,sclEnmDump,rough,1,/,int,0,2,/,0,enumerator for dump level (<value> 0: none 1: inout 2: intermediate)
+scaler,sclDatThreshold2,rough,1,/,double,0,1,8,0.5,threshold for 2-tap filter
+scaler,sclDatThreshold4,rough,1,/,int,0,255,/,128,threshold for 4-tap filter
+filter,fltFlgProc,rough,1,/,bool,/,/,/,0,enable flag for processing
+filter,fltEnmLoad,rough,1,/,int,0,2,/,0,enumerator for load source (<value> 0: pipeline 1: file 2: random)
+filter,fltEnmDump,rough,1,/,int,0,2,/,0,enumerator for dump level (<value> 0: none 1: inout 2: intermediate)
+filter,fltDatCoe,rough,3x3,/,double,-16,15.9375,4,0 -1 0 -1 5 -1 0 -1 0,coefficient data (<index> Y(0/1/2)~X(0/1/2): value of the coefficient positioned at Y(-1/0/1)~X(-1/0/1))
+on-screen-display,osdFlgProc,rough,1,/,bool,/,/,/,0,enable flag for processing
+on-screen-display,osdStrFile0,rough,1,i,string,/,/,/,/mnt/e/DOWNLOAD/SEQUENCE/HM/BasketballPass/BasketballPass.yuv,location of the 0th OSD file
+on-screen-display,osdStrFile1,rough,1,i,string,/,/,/,/mnt/e/DOWNLOAD/SEQUENCE/HM_AYUV1555/BasketballPass/BasketballPass.yuv,location of the 1st OSD file
+on-screen-display,osdStrFile2,rough,1,i,string,/,/,/,/mnt/e/DOWNLOAD/SEQUENCE/HM_INDX2/BasketballPass/BasketballPass.yuv,location of the 2nd OSD file
+on-screen-display,osdStrFile3,rough,1,i,string,/,/,/,/mnt/e/DOWNLOAD/SEQUENCE/HM_INDX4/BasketballPass/BasketballPass.yuv,location of the 3rd OSD file
+on-screen-display,osdStrFile4,rough,1,i,string,/,/,/,/mnt/e/DOWNLOAD/SEQUENCE/HM_ARGB1555/BasketballPass/BasketballPass.yuv,location of the 4th OSD file
+on-screen-display,osdStrFile5,rough,1,i,string,/,/,/,osd5.yuv,location of the 5th OSD file
+on-screen-display,osdStrFile6,rough,1,i,string,/,/,/,osd6.yuv,location of the 6th OSD file
+on-screen-display,osdStrFile7,rough,1,i,string,/,/,/,osd7.yuv,location of the 7th OSD file
+on-screen-display,osdFlg,rough,8,/,bool,/,/,/,0 0 0 0 0 0 0 0,enable flags for OSD (<index> N: the Nth OSD)
+on-screen-display,osdSizFrameX,rough,8,/,int,1,4096,/,416 416 416 416 416 16 16 16,size of OSD frames in 1st dimension (<index> N: the Nth OSD)
+on-screen-display,osdSizFrameY,rough,8,/,int,1,4096,/,240 240 240 240 240 16 16 16,size of OSD frames in 2nd dimension (<index> N: the Nth OSD)
+on-screen-display,osdPosFrameX,rough,8,/,int,0,4095,/,16 32 64 128 256 0 0 0,position of OSD frames in 1st dimension (<index> N: the Nth OSD)
+on-screen-display,osdPosFrameY,rough,8,/,int,0,4095,/,0 16 32 64 128 0 0 0,position of OSD frames in 2nd dimension (<index> N: the Nth OSD)
+on-screen-display,osdEnmLoad,rough,1,/,int,0,2,/,0,enumerator for load source (<value> 0: pipeline 1: file 2: random)
+on-screen-display,osdEnmMode,rough,8,/,int,0,4,/,0 1 2 3 4 0 0 0,enumerator for work mode (<index> N: the Nth OSD) (<value> 0: YUV420; 1: AYUV1555; 2: index 2; 3: index 4; 4: ARGB1555)
+on-screen-display,osdEnmDump,rough,1,/,int,0,2,/,0,enumerator for dump level (<value> 0: none 1: inout 2: intermediate)
+on-screen-display,osdDatScl,rough,8x2,/,int,1,4,/,1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1,scaler data (<index> N-A(0/1): axis A(X/Y) of the Nth OSD)
+on-screen-display,osdDatLut0,rough,4x4,/,int,/,/,/,192 81 90 240 128 145 54 34 64 41 240 110 110 53 22 127,data of 0th OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut1,rough,4x4,/,int,/,/,/,192 81 90 240 128 145 54 34 64 41 240 110 110 53 22 127,data of the 1st OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut2,rough,4x4,/,int,/,/,/,192 81 90 240 128 145 54 34 64 41 240 110 110 53 22 127,data of the 2nd OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut3,rough,4x4,/,int,/,/,/,192 81 90 240 128 145 54 34 64 41 240 110 110 53 22 127,data of the 3rd OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut4,rough,4x4,/,int,/,/,/,192 81 90 240 128 145 54 34 64 41 240 110 110 53 22 127,data of the 4th OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut5,rough,4x4,/,int,/,/,/,0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0,data of the 5th OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut6,rough,4x4,/,int,/,/,/,0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0,data of the 6th OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+on-screen-display,osdDatLut7,rough,4x4,/,int,/,/,/,0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0,data of the 7th OSD's LUT (<index> N~C(0/1/2/3): value of channal C(alpha/Y/U/V) of the Nth data)
+example,exampleDatInt,detailed,1,/,int,0,1,/,0,an example for int (scalar)
+example,exampleDatDouble,detailed,1,/,double,0,0.875,8,0,an example for double (scalar)
+example,exampleDatVector,detailed,2,/,int,0,1,/,0 0,an example for (int) vector
+example,exampleDatArray,detailed,2x3,/,int,0,1,/,0 0 0 0 0 0,an example for (int) array
+derived,numUnitX,detailed,1,/,int,/,/,/,/,number of units in 1st dimension
+derived,numUnitY,detailed,1,/,int,/,/,/,/,number of units in 2nd dimension
+derived,datScalerX,detailed,1,/,double,/,/,16,/,scaler data in 1st dimension
+derived,datScalerY,detailed,1,/,double,/,/,16,/,scaler data in 2nd dimension
+derived,sclDatThreshold2Inv,rough,1,/,double,/,/,8,/,threshold for 2-tap filter divided by 1

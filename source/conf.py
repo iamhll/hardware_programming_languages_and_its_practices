@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'hardware_programming_languages_and_its_practices'
-copyright = '2025, llhuang'
+copyright = '2026, llhuang'
 author = 'llhuang'
 
 
@@ -71,4 +71,5 @@ html_theme_options = {
     "relbartextcolor"   : "#ffffff",
     "relbarlinkcolor"   : "#ffffff"
 }
+html_output_encoding = 'utf-8'
 #--- END   OF "ADDED BY HLL" ---
