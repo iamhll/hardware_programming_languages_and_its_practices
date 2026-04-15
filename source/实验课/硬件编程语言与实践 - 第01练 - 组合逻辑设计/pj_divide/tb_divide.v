@@ -11,8 +11,8 @@
 `include "define.vh"
 
 //--- GLOBAL ---------------------------
-  `define SIM_KNOB_WAVEFORM_VCD      1
-  `define SIM_DATA_WAVEFORM_TIME     0
+  `define SIM_KNOB_WAVEFORM_VCD     1
+  `define SIM_DATA_WAVEFORM_TIME    0
 
 
 //--- LOCAL ----------------------------
@@ -24,7 +24,7 @@
 
   `define SIM_CSTR_FILE_CHKO_DIVIDE_DAT_C    "../DIVIDE_DAT_C_S0I8F8.dat"
 
-  `define SIM_CSTR_FILE_WAVE_VCD     "waveform.vcd"
+  `define SIM_CSTR_FILE_WAVE_VCD    "waveform.vcd"
 
 
 module tb_divide ;
@@ -33,36 +33,36 @@ module tb_divide ;
 //*** PARAMETER ****************************************************************
 
   // local
-  localparam    DATA_WD    = 'd8        ;
+  localparam    DATA_WD    = 'd8     ;
 
 
 //*** INPUT/OUTPUT *************************************************************
 
   // global
-  reg                      clk          ;
-  reg                      rstn         ;
+  reg                      clk       ;
+  reg                      rstn      ;
 
   // dat_i
-  reg                      val_i        ;
-  reg  [DATA_WD  -1 :0]    dat_a_i      ;
-  reg  [DATA_WD  -1 :0]    dat_b_i      ;
+  reg                      val_i     ;
+  reg  [DATA_WD  -1 :0]    dat_a_i   ;
+  reg  [DATA_WD  -1 :0]    dat_b_i   ;
 
   // dat_o
-  wire [DATA_WD*2-1 :0]    dat_c_o      ;
+  wire [DATA_WD*2-1 :0]    dat_c_o   ;
 
 
 //*** WIRE/REG *****************************************************************
 
   // sim
-  integer                  sim_fpt_a    ;
-  integer                  sim_fpt_b    ;
-  integer                  sim_fpt      ;
-  integer                  sim_tmp      ;
-  reg  [DATA_WD*2-1 :0]    sim_dat      ;
+  integer                  sim_fpt_a ;
+  integer                  sim_fpt_b ;
+  integer                  sim_fpt   ;
+  integer                  sim_tmp   ;
+  reg  [DATA_WD*2-1 :0]    sim_dat   ;
 
   // dut
-  reg                      dut_val      ;
-  reg  [DATA_WD*2-1 :0]    dut_dat      ;
+  reg                      dut_val   ;
+  reg  [DATA_WD*2-1 :0]    dut_dat   ;
 
 
 //*** MAIN BODY ****************************************************************

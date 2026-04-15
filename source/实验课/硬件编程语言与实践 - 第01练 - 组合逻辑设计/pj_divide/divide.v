@@ -11,8 +11,8 @@
 `include "define.vh"
 
 module divide(
-  dat_a_i     ,
-  dat_b_i     ,
+  dat_a_i    ,
+  dat_b_i    ,
   dat_c_o
 );
 
@@ -60,7 +60,7 @@ module divide(
 //--- OUTPUT ---------------------------
   // dat_c_o
   //     I8F8      I8F24
-  assign dat_c_o = ((dat_c_full_w >> 'd15) + 'd1) >> 'd1 ;
+  assign dat_c_o = ((dat_c_full_w>>'d15)+'d1) >> 'd1 ;
 
   // dat_c_full_w
   //     I8F24          I8F0      I0F24
@@ -68,7 +68,7 @@ module divide(
 
   // dat_t_w
   always @(*) begin
-      dat_t_w = 'd1 << (DATA_INN_WD - DATA_WD);
+      dat_t_w = 'd1 << (DATA_INN_WD-DATA_WD) ;
     for( lpIdx = 'd0 ;lpIdx < NUMB_ITR ;lpIdx = lpIdx + 'd1 ) begin
     //I8F24          I8F0    * I0F24
       dat_j_full_w = dat_b_i * dat_t_w ;
@@ -79,7 +79,7 @@ module divide(
     //I1F48          I0F24     I1F24
       dat_t_full_w = dat_t_w * dat_k_w ;
     //I0F24     I1F48
-      dat_t_w = ((dat_t_full_w >> 'd23) + 'd1) >> 'd1 ;
+      dat_t_w = ((dat_t_full_w>>'d23)+'d1) >> 'd1 ;
     end
   end
 
