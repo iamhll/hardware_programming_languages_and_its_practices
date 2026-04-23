@@ -1,10 +1,10 @@
 //------------------------------------------------------------------------------
   //
-  //  Filename       : tb_divide.v
+  //  Filename       : tb_sin.v
   //  Author         : Huang Leilei
   //  Status         : draft
   //  Created        : 2026-03-03
-  //  Description    : [testbench] for [divide]
+  //  Description    : [testbench] for [sin]
   //
 //------------------------------------------------------------------------------
 
@@ -19,50 +19,46 @@
   // SIM
   `define SIM_DATA_PRD_CLK    10.000
 
-  `define SIM_CSTR_FILE_CHKI_DIVIDE_DAT_A    "../DIVIDE_DAT_A_S0I8F0.dat"
-  `define SIM_CSTR_FILE_CHKI_DIVIDE_DAT_B    "../DIVIDE_DAT_B_S0I8F0.dat"
-
-  `define SIM_CSTR_FILE_CHKO_DIVIDE_DAT_C    "../DIVIDE_DAT_C_S0I8F8.dat"
+  `define SIM_CSTR_FILE_CHKI_DAT_I    "../SIN_DAT_I_S0I1F16.dat"
+  `define SIM_CSTR_FILE_CHKO_DAT_O    "../SIN_DAT_O_S0I1F16.dat"
 
   `define SIM_CSTR_FILE_WAVE_VCD    "waveform.vcd"
 
 
-module tb_divide ;
+module tb_sin ;
 
 
 //*** PARAMETER ****************************************************************
 
   // local
-  localparam    DATA_WD    = 'd8     ;
+  localparam    DATA_WD  = 'd17    ;
 
 
 //*** INPUT/OUTPUT *************************************************************
 
   // global
-  reg                      clk       ;
-  reg                      rstn      ;
+  reg                    clk       ;
+  reg                    rstn      ;
 
   // dat_i
-  reg                      val_i     ;
-  reg  [DATA_WD  -1 :0]    dat_a_i   ;
-  reg  [DATA_WD  -1 :0]    dat_b_i   ;
+  reg                    val_i     ;
+  reg  [DATA_WD-1 :0]    dat_i     ;
 
   // dat_o
-  wire [DATA_WD*2-1 :0]    dat_c_o   ;
+  wire [DATA_WD-1 :0]    dat_o     ;
 
 
 //*** WIRE/REG *****************************************************************
 
   // sim
-  integer                  sim_fpt_a ;
-  integer                  sim_fpt_b ;
-  integer                  sim_fpt   ;
-  integer                  sim_tmp   ;
-  reg  [DATA_WD*2-1 :0]    sim_dat   ;
+  integer                sim_fpt_i ;
+  integer                sim_fpt_o ;
+  integer                sim_tmp   ;
+  reg  [DATA_WD-1 :0]    sim_dat   ;
 
   // dut
-  reg                      dut_val   ;
-  reg  [DATA_WD*2-1 :0]    dut_dat   ;
+  reg                    dut_val   ;
+  reg  [DATA_WD-1 :0]    dut_dat   ;
 
 
 //*** MAIN BODY ****************************************************************
@@ -90,9 +86,8 @@ module tb_divide ;
   // main
   initial begin
     // init
-    val_i   = 'd0 ;
-    dat_a_i = 'd0 ;
-    dat_b_i = 'd0 ;
+    val_i = 'd0 ;
+    dat_i = 'd0 ;
 
     // delay
     #( 5 * `SIM_DATA_PRD_CLK );
@@ -105,29 +100,25 @@ module tb_divide ;
     $display( "" );
 
     // open files
-    sim_fpt_a = $fopen( `SIM_CSTR_FILE_CHKI_DIVIDE_DAT_A ,"r" );
-    sim_fpt_b = $fopen( `SIM_CSTR_FILE_CHKI_DIVIDE_DAT_B ,"r" );
+    sim_fpt_i = $fopen( `SIM_CSTR_FILE_CHKI_DAT_I ,"r" );
 
     // set
     sim_tmp = 'd1 ;
     while( sim_tmp != -'sd1 ) begin
       @(negedge clk );
       val_i   = 'd1 ;
-      sim_tmp = $fscanf( sim_fpt_a ,"%x" ,dat_a_i );
-      sim_tmp = $fscanf( sim_fpt_b ,"%x" ,dat_b_i );
+      sim_tmp = $fscanf( sim_fpt_i ,"%x" ,dat_i );
     end
     @(negedge clk );
-    val_i   = 'd0 ;
-    dat_a_i = $random ;
-    dat_b_i = $random ;
+    val_i = 'd0 ;
+    dat_i = $random ;
 
     // delay
     #( 5 * `SIM_DATA_PRD_CLK );
 
     // post
-    val_i   = 'd0 ;
-    dat_a_i = 'd0 ;
-    dat_b_i = 'd0 ;
+    val_i = 'd0 ;
+    dat_i = 'd0 ;
 
     // log
     #( 1000 * `SIM_DATA_PRD_CLK );
@@ -139,10 +130,10 @@ module tb_divide ;
   initial begin
     // log info
     #( 10 * `SIM_DATA_PRD_CLK );
-    $display( "\t\t function check to dat_c_o is on!" );
+    $display( "\t\t function check to dat_o is on!" );
 
     // open files
-    sim_fpt = $fopen( `SIM_CSTR_FILE_CHKO_DIVIDE_DAT_C ,"r" );
+    sim_fpt_o = $fopen( `SIM_CSTR_FILE_CHKO_DAT_O ,"r" );
 
     // core loop
     forever begin
@@ -155,10 +146,10 @@ module tb_divide ;
         // if valid
         if( dut_val ) begin
           // dut_*
-          dut_dat = dat_c_o ;
+          dut_dat = dat_o ;
 
           // sim_*
-          sim_tmp = $fscanf( sim_fpt ,"%x" ,sim_dat );
+          sim_tmp = $fscanf( sim_fpt_o ,"%x" ,sim_dat );
 
           // check
           if( dut_dat !== sim_dat ) begin
@@ -177,12 +168,11 @@ module tb_divide ;
 
 //--- INSTANTIATION --------------------
   // begin of DUT
-    divide dut(
+    sin dut(
       // dat_i
-      .dat_a_i    ( dat_a_i    ),
-      .dat_b_i    ( dat_b_i    ),
+      .dat_i    ( dat_i    ),
       // dat_o
-      .dat_c_o    ( dat_c_o    )
+      .dat_o    ( dat_o    )
     );
   // end   of DUT
 
@@ -194,7 +184,7 @@ module tb_divide ;
       if( `SIM_KNOB_WAVEFORM_VCD ) begin
         #`SIM_DATA_WAVEFORM_TIME ;
         $dumpfile( `SIM_CSTR_FILE_WAVE_VCD );
-        $dumpvars( 'd0, tb_divide );
+        $dumpvars( 'd0, tb_sin );
         #( 10 * `SIM_DATA_PRD_CLK );
         $display( "\t\t dump (vcd) to this test is on!" );
       end
